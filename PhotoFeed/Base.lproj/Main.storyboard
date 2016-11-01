@@ -34,7 +34,7 @@
         <!--Spots-->
         <scene sceneID="KSj-Gh-ToL">
             <objects>
-                <viewController id="z4c-hI-Eiv" sceneMemberID="viewController">
+                <viewController id="z4c-hI-Eiv" customClass="SpotsTabController" customModule="PhotoFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KbF-hv-2xY"/>
                         <viewControllerLayoutGuide type="bottom" id="dX6-mY-H9H"/>
@@ -58,6 +58,9 @@
                     <tabBarItem key="tabBarItem" title="Spots" id="ll7-bC-Mf1"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="mapView" destination="MW7-wn-DPm" id="mXi-hT-Faf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ha-pa-MHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

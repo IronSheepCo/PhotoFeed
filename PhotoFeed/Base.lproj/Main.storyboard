@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="w0p-On-jUI">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,15 +19,17 @@
                         <viewControllerLayoutGuide type="bottom" id="RbM-nX-7rg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="31k-ep-2S7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="Z4Q-RC-7tv"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x8D-C4-IQX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1185" y="526"/>
+            <point key="canvasLocation" x="1183" y="652"/>
         </scene>
         <!--Spots-->
         <scene sceneID="KSj-Gh-ToL">
@@ -37,24 +40,39 @@
                         <viewControllerLayoutGuide type="bottom" id="dX6-mY-H9H"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RHF-nQ-IBu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MW7-wn-DPm">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MW7-wn-DPm" firstAttribute="top" secondItem="KbF-hv-2xY" secondAttribute="bottom" constant="-20" id="CQJ-yX-7C1"/>
+                            <constraint firstItem="MW7-wn-DPm" firstAttribute="leading" secondItem="RHF-nQ-IBu" secondAttribute="leadingMargin" constant="-16" id="CmC-Zv-Wm6"/>
+                            <constraint firstItem="dX6-mY-H9H" firstAttribute="top" secondItem="MW7-wn-DPm" secondAttribute="bottom" id="fwN-en-lga"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MW7-wn-DPm" secondAttribute="trailing" constant="-16" id="pvo-gb-pJs"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Spots" id="ll7-bC-Mf1"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ha-pa-MHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1185" y="-148"/>
+            <point key="canvasLocation" x="1185" y="-148.94366197183098"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5zN-yW-30k">
             <objects>
                 <tabBarController id="w0p-On-jUI" sceneMemberID="viewController">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="2mq-GD-zMp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="z4c-hI-Eiv" kind="relationship" relationship="viewControllers" id="Z5b-gP-5Vm"/>

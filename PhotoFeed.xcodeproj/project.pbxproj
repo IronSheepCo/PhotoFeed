@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E15AFE71DC8ED9200EFBDD1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E15AFE61DC8ED9200EFBDD1 /* MapKit.framework */; };
 		8ECE65A41DC8AF9B004442A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE65A31DC8AF9B004442A4 /* AppDelegate.swift */; };
 		8ECE65A61DC8AF9B004442A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE65A51DC8AF9B004442A4 /* ViewController.swift */; };
 		8ECE65A91DC8AF9B004442A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECE65A71DC8AF9B004442A4 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 		1701442801A4A45A2EE5E212 /* Pods-PhotoFeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoFeed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoFeed/Pods-PhotoFeed.debug.xcconfig"; sourceTree = "<group>"; };
 		32AEF8976CF7CE088E60FBEC /* Pods-PhotoFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoFeed.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoFeed/Pods-PhotoFeed.release.xcconfig"; sourceTree = "<group>"; };
 		6144CF17E6EF2E546F83705A /* Pods_PhotoFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E15AFE61DC8ED9200EFBDD1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8ECE65A01DC8AF9B004442A4 /* PhotoFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ECE65A31DC8AF9B004442A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ECE65A51DC8AF9B004442A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E15AFE71DC8ED9200EFBDD1 /* MapKit.framework in Frameworks */,
 				C244109326797D0BC621A8AC /* Pods_PhotoFeed.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +50,7 @@
 		186EE60F7A961F2A1B7EB3EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8E15AFE61DC8ED9200EFBDD1 /* MapKit.framework */,
 				6144CF17E6EF2E546F83705A /* Pods_PhotoFeed.framework */,
 			);
 			name = Frameworks;

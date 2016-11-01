@@ -13,6 +13,7 @@
 		8ECE65AB1DC8AF9B004442A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ECE65AA1DC8AF9B004442A4 /* Assets.xcassets */; };
 		8ECE65AE1DC8AF9B004442A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECE65AC1DC8AF9B004442A4 /* LaunchScreen.storyboard */; };
 		8ECE65B61DC8D719004442A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ECE65B51DC8D719004442A4 /* GoogleService-Info.plist */; };
+		8ECE65B91DC8E788004442A4 /* SettingsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE65B81DC8E788004442A4 /* SettingsKey.swift */; };
 		C244109326797D0BC621A8AC /* Pods_PhotoFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6144CF17E6EF2E546F83705A /* Pods_PhotoFeed.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		8ECE65AD1DC8AF9B004442A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8ECE65AF1DC8AF9B004442A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8ECE65B51DC8D719004442A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8ECE65B81DC8E788004442A4 /* SettingsKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		8ECE65A21DC8AF9B004442A4 /* PhotoFeed */ = {
 			isa = PBXGroup;
 			children = (
+				8ECE65B71DC8E77B004442A4 /* Utils */,
 				8ECE65B51DC8D719004442A4 /* GoogleService-Info.plist */,
 				8ECE65A31DC8AF9B004442A4 /* AppDelegate.swift */,
 				8ECE65A51DC8AF9B004442A4 /* ViewController.swift */,
@@ -80,6 +83,14 @@
 				8ECE65AF1DC8AF9B004442A4 /* Info.plist */,
 			);
 			path = PhotoFeed;
+			sourceTree = "<group>";
+		};
+		8ECE65B71DC8E77B004442A4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8ECE65B81DC8E788004442A4 /* SettingsKey.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		C92889E2A004E95408D90018 /* Pods */ = {
@@ -217,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8ECE65A61DC8AF9B004442A4 /* ViewController.swift in Sources */,
+				8ECE65B91DC8E788004442A4 /* SettingsKey.swift in Sources */,
 				8ECE65A41DC8AF9B004442A4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

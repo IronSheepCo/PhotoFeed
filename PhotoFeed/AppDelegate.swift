@@ -21,13 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //init firebase
         FIRApp.configure()
         
-        if UserDefaults.standard.string(forKey: "UID") == nil
+        if UserDefaults.standard.string(forKey: SettingsKey.UID.rawValue ) == nil
         {
-            UserDefaults.standard.set(UUID().uuidString, forKey: "UID")
+            UserDefaults.standard.set(UUID().uuidString, forKey: SettingsKey.UID.rawValue)
             
             //save the user in firebase
             let ref = FIRDatabase.database().reference()
-            ref.child("users").child(UserDefaults.standard.string(forKey:"UID")!).setValue(
+                ref.child("users").child(UserDefaults.standard.string(forKey:SettingsKey.UID.rawValue)!).setValue(
                 ["username":"anon",
                  "created_at":Int(Date().timeIntervalSince1970)]
             )

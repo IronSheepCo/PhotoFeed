@@ -5,5 +5,7 @@ use_frameworks!
 
 target 'PhotoFeed' do
 
+pod 'Firebase/Database'
+
 end
 

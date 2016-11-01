@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,9 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //init firebase
+        FIRApp.configure()
+        
         if UserDefaults.standard.string(forKey: "UID") == nil
         {
             UserDefaults.standard.set(UUID().uuidString, forKey: "UID")
+            
+            //save the user in firebase
+            let ref = FIRDatabase.database().reference()
+            ref.child("users").child(UserDefaults.standard.string(forKey:"UID")!).setValue(
+                ["username":"anon",
+                 "created_at":Int(Date().timeIntervalSince1970)]
+            )
         }
         
         return true

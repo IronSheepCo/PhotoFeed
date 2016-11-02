@@ -61,6 +61,9 @@ class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINa
         uploadTask.observe(.success, handler:uploadDone )
         uploadTask.observe(.failure, handler:uploadError )
         
+        //add entry for current feed
+        FirebaseUtil.instance.ref.child("images").child( firKey ).child( imageId ).setValue( [ "user":UserSettings.ID, "created_at": String(Int(Date().timeIntervalSince1970)) ] )
+        
         picker.dismiss(animated: true){}
     }
     
@@ -75,7 +78,6 @@ class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINa
     
     fileprivate func uploadDone( snapshot:FIRStorageTaskSnapshot )
     {
-        
     }
     
     

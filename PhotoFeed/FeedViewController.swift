@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseStorage
+import FirebaseDatabase
 import UIImage_Resize
 import MBProgressHUD
 import Toast_Swift
@@ -20,10 +21,24 @@ class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINa
     fileprivate var uploadTask: FIRStorageUploadTask!
     fileprivate var progressBar: MBProgressHUD!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        FirebaseUtil.instance.ref.child( "images" ).child( firKey ).observeSingleEvent( of:FIRDataEventType.value, with: feedUpdate )
+        FirebaseUtil.instance.ref.child( "images" ).child( firKey ).observe(FIRDataEventType.childAdded, with: feedUpdate )
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         title = firKey.substring(to: firKey.index(firKey.startIndex, offsetBy:8))
+    }
+    
+    fileprivate func feedUpdate(_ snapshot: FIRDataSnapshot )
+    {
+        let data = snapshot.value as! [String:AnyObject]
+        
+        print( data )
     }
     
     @IBAction func addPhoto(_ sender: UIBarButtonItem) {

@@ -54,7 +54,7 @@ class SpotsTabController: UIViewController, CLLocationManagerDelegate{
     
     fileprivate func photoFeed( id:String?, loc: CLLocation? )
     {
-       
+        mapView.addAnnotation(FeedAnnotation(loc!.coordinate))
     }
     
     @IBAction func longPressOnMap(_ sender: UILongPressGestureRecognizer) {

@@ -7,12 +7,15 @@
 //
 
 import Foundation
-import Firebase
+import FirebaseDatabase
+import FirebaseStorage
+import FirebaseCore
 import GeoFire
 
 class FirebaseUtil
 {
     let ref:FIRDatabaseReference
+    let storage:FIRStorageReference
     let geofire:GeoFire
     
     static let instance:FirebaseUtil = FirebaseUtil()
@@ -22,6 +25,7 @@ class FirebaseUtil
         FIRApp.configure()
         
         ref = FIRDatabase.database().reference()
+        storage = FIRStorage.storage().reference()
         geofire = GeoFire(firebaseRef: ref.child("locations"))
     }
     

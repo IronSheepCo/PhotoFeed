@@ -112,7 +112,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Feed" id="I2z-yp-2PN"/>
+                    <navigationItem key="navigationItem" title="Feed" id="I2z-yp-2PN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xjG-WK-wSG">
+                            <connections>
+                                <action selector="addPhoto:" destination="h4T-0b-VLL" id="ONH-6u-FHf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="96r-gz-iYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

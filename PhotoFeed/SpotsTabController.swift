@@ -10,15 +10,30 @@ import Foundation
 import UIKit
 import MapKit
 
-class SpotsTabController: UIViewController{
+class SpotsTabController: UIViewController, CLLocationManagerDelegate{
     
     
     @IBOutlet weak var mapView: MKMapView!
     
+    fileprivate let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView.setRegion(MKCoordinateRegionMake(CLLocationCoordinate2DMake(45, 90), MKCoordinateSpanMake(0.1, 0.1)), animated: true)
+        locationManager.delegate = self
+        
+        locationManager.requestWhenInUseAuthorization()
+        
+        locationManager.startUpdatingLocation()
+    }
+    
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    {
+        let lastLocation = locations.last!
+        
+        let region = MKCoordinateRegionMake(lastLocation.coordinate, MKCoordinateSpanMake(0.01, 0.01))
+        
+        mapView.setRegion(region, animated: true)
     }
     
 }

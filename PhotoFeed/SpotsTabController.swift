@@ -24,6 +24,8 @@ class SpotsTabController: UIViewController, CLLocationManagerDelegate{
         
         locationManager.requestWhenInUseAuthorization()
         
+        locationManager.distanceFilter = 3
+        
         locationManager.startUpdatingLocation()
     }
     

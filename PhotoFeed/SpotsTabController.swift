@@ -125,11 +125,11 @@ class SpotsTabController: UIViewController, CLLocationManagerDelegate, MKMapView
             
             if error != nil
             {
-                self.view.makeToast("An error occured. Feed not created", duration:2, position:.top)
+                self.view.makeToast("An error occured. Feed not created", duration:2, position: .center)
             }
             else
             {
-                self.view.makeToast("Photo feed created", duration:2, position:.top)
+                self.view.makeToast("Photo feed created", duration:2, position:.center)
             }
         }
     }

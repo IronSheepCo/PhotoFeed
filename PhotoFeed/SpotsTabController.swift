@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 import Toast_Swift
+import GeoFire
 
 class SpotsTabController: UIViewController, CLLocationManagerDelegate{
     
@@ -17,6 +18,7 @@ class SpotsTabController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var mapView: MKMapView!
     
     fileprivate let locationManager = CLLocationManager()
+    fileprivate var query: GFRegionQuery!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,22 @@ class SpotsTabController: UIViewController, CLLocationManagerDelegate{
         let region = MKCoordinateRegionMake(lastLocation.coordinate, MKCoordinateSpanMake(0.01, 0.01))
         
         mapView.setRegion(region, animated: true)
+        
+        //geo fire query update for feeds
+        if let query = query
+        {
+            query.region = region
+        }
+        else
+        {
+            query = FirebaseUtil.instance.geofire.query(with: region )
+            query.observe( .keyEntered, with:photoFeed )
+        }
+    }
+    
+    fileprivate func photoFeed( id:String?, loc: CLLocation? )
+    {
+       
     }
     
     @IBAction func longPressOnMap(_ sender: UILongPressGestureRecognizer) {

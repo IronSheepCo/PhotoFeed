@@ -167,6 +167,7 @@
 					8ECE659F1DC8AF9B004442A4 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = Z5WP3H8CA9;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};

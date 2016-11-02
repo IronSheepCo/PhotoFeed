@@ -50,7 +50,9 @@ class SpotsTabController: UIViewController, CLLocationManagerDelegate{
         
         let alert = UIAlertController(title: "Add feed", message: "Want to add a PhotoFeed at this location?", preferredStyle: .alert )
         
-        let okAction = UIAlertAction(title: "OK", style: .default ){action in}
+        let okAction = UIAlertAction(title: "OK", style: .default ){action in
+            self.createPhotoFeed( coordinates )
+        }
         
         let cancelAction = UIAlertAction(title:"Cancel", style: .cancel ){action in}
         
@@ -58,6 +60,13 @@ class SpotsTabController: UIViewController, CLLocationManagerDelegate{
         alert.addAction( cancelAction )
         
         present( alert, animated:true )
+    }
+    
+    fileprivate func createPhotoFeed(_ coords: CLLocationCoordinate2D )
+    {
+        let data: [String:Any] = ["creator": UserSettings.ID!, "location":["lat":coords.latitude, "long":coords.longitude]]
+        
+        FirebaseUtil.instance.ref.child( "photofeeds" ).child( UUID().uuidString ).setValue(data)
     }
     
 }

@@ -12,7 +12,7 @@ import MapKit
 import Toast_Swift
 import GeoFire
 
-class SpotsTabController: UIViewController, CLLocationManagerDelegate{
+class SpotsTabController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
     
     
     @IBOutlet weak var mapView: MKMapView!
@@ -55,6 +55,27 @@ class SpotsTabController: UIViewController, CLLocationManagerDelegate{
     fileprivate func photoFeed( id:String?, loc: CLLocation? )
     {
         mapView.addAnnotation(FeedAnnotation(loc!.coordinate, firKey:id!))
+    }
+    
+    public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
+    {
+        if annotation is MKUserLocation
+        {
+            return nil
+        }
+        
+        var view = mapView.dequeueReusableAnnotationView(withIdentifier: "customMKAnnotationViewId")
+        
+        if view == nil
+        {
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "customMKAnnotationViewId")
+            
+            var rightButton = UIButton(type: .detailDisclosure )
+            view?.rightCalloutAccessoryView = rightButton
+            view?.canShowCallout = true
+        }
+        
+        return view
     }
     
     @IBAction func longPressOnMap(_ sender: UILongPressGestureRecognizer) {

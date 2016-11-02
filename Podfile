@@ -9,6 +9,7 @@ pod 'Firebase/Database'
 pod 'Firebase/Storage'
 pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
 pod 'Toast-Swift', '~> 2.0.0'
+pod 'UIImage-Resize', '~> 1.0'
 
 end
 

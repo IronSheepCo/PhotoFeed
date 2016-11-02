@@ -97,12 +97,12 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1948" y="-150"/>
+            <point key="canvasLocation" x="2034" y="-150"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed-->
         <scene sceneID="4so-qK-7dW">
             <objects>
-                <viewController id="h4T-0b-VLL" sceneMemberID="viewController">
+                <viewController id="h4T-0b-VLL" customClass="FeedViewController" customModule="PhotoFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QHq-vd-Han"/>
                         <viewControllerLayoutGuide type="bottom" id="aAC-fW-jks"/>
@@ -112,10 +112,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Feed" id="I2z-yp-2PN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="96r-gz-iYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2739" y="-150"/>
+            <point key="canvasLocation" x="2839" y="-150"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5zN-yW-30k">

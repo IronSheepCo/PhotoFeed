@@ -86,7 +86,7 @@ class SpotsTabController: UIViewController, CLLocationManagerDelegate, MKMapView
             return
         }
         
-        performSegue(withIdentifier: feedSegue, sender: self)
+        performSegue(withIdentifier: feedSegue, sender: annon)
     }
     
     @IBAction func longPressOnMap(_ sender: UILongPressGestureRecognizer) {
@@ -132,6 +132,25 @@ class SpotsTabController: UIViewController, CLLocationManagerDelegate, MKMapView
                 self.view.makeToast("Photo feed created", duration:2, position:.center)
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == feedSegue
+        {
+            guard let destination = segue.destination as? FeedViewController else
+            {
+                return
+            }
+            
+            guard let realSender = sender as? FeedAnnotation else
+            {
+                return
+            }
+            
+            destination.firKey = realSender.firebaseKey
+        }
+        
     }
     
 }

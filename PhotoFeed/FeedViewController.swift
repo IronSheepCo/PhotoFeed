@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseStorage
+import UIImage_Resize
 
 class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
@@ -48,7 +49,10 @@ class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINa
     
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
         let image = info[ UIImagePickerControllerOriginalImage ] as! UIImage
-        let data = UIImagePNGRepresentation(image)
+        
+        let resizedImage = image.resizedImageToFit(in: CGSize(width:500, height:500), scaleIfSmaller: true)
+        
+        let data = UIImagePNGRepresentation(resizedImage!)
         
         let imageId = UUID().uuidString
         

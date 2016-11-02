@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MapKit
+import Toast_Swift
 
 class SpotsTabController: UIViewController, CLLocationManagerDelegate{
     
@@ -69,7 +70,18 @@ class SpotsTabController: UIViewController, CLLocationManagerDelegate{
         let location:CLLocation = CLLocation( latitude:coords.latitude, longitude:coords.longitude )
         
         FirebaseUtil.instance.ref.child( "photofeeds" ).child( feedId ).setValue(data)
-        FirebaseUtil.instance.geofire.setLocation(location, forKey: feedId)
+        FirebaseUtil.instance.geofire.setLocation(location, forKey: feedId){
+            error in
+            
+            if error != nil
+            {
+                self.view.makeToast("An error occured. Feed not created", duration:2, position:.top)
+            }
+            else
+            {
+                self.view.makeToast("Photo feed created", duration:2, position:.top)
+            }
+        }
     }
     
 }

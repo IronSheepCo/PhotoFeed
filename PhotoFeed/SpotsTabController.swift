@@ -48,7 +48,16 @@ class SpotsTabController: UIViewController, CLLocationManagerDelegate{
         let touchLocation = sender.location(in: mapView)
         let coordinates = mapView.convert(touchLocation, toCoordinateFrom: mapView)
         
-        print( coordinates )
+        let alert = UIAlertController(title: "Add feed", message: "Want to add a PhotoFeed at this location?", preferredStyle: .alert )
+        
+        let okAction = UIAlertAction(title: "OK", style: .default ){action in}
+        
+        let cancelAction = UIAlertAction(title:"Cancel", style: .cancel ){action in}
+        
+        alert.addAction( okAction )
+        alert.addAction( cancelAction )
+        
+        present( alert, animated:true )
     }
     
 }

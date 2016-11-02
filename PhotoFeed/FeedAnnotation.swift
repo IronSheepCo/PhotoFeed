@@ -18,7 +18,7 @@ class FeedAnnotation: NSObject, MKAnnotation{
     init(_ loc: CLLocationCoordinate2D, firKey:String )
     {
         coordinate = loc
-        title = ""
+        title = firKey.substring(to: firKey.index( firKey.startIndex, offsetBy:8) )
         firebaseKey = firKey
     }
     

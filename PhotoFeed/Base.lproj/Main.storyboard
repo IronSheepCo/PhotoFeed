@@ -48,12 +48,16 @@
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="MW7-wn-DPm" firstAttribute="top" secondItem="KbF-hv-2xY" secondAttribute="bottom" constant="-20" id="CQJ-yX-7C1"/>
                             <constraint firstItem="MW7-wn-DPm" firstAttribute="leading" secondItem="RHF-nQ-IBu" secondAttribute="leadingMargin" constant="-16" id="CmC-Zv-Wm6"/>
                             <constraint firstItem="dX6-mY-H9H" firstAttribute="top" secondItem="MW7-wn-DPm" secondAttribute="bottom" id="fwN-en-lga"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MW7-wn-DPm" secondAttribute="trailing" constant="-16" id="pvo-gb-pJs"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="O4N-DM-xB9" appends="YES" id="PYC-I4-CFi"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Spots" id="ll7-bC-Mf1"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -63,6 +67,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ha-pa-MHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="O4N-DM-xB9">
+                    <connections>
+                        <action selector="longPressOnMap:" destination="z4c-hI-Eiv" id="H9x-V1-lGL"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1185" y="-148.94366197183098"/>
         </scene>

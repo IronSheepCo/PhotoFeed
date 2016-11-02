@@ -36,4 +36,17 @@ class SpotsTabController: UIViewController, CLLocationManagerDelegate{
         mapView.setRegion(region, animated: true)
     }
     
+    @IBAction func longPressOnMap(_ sender: UILongPressGestureRecognizer) {
+        
+        if sender.state != UIGestureRecognizerState.began
+        {
+            return
+        }
+        
+        let touchLocation = sender.location(in: mapView)
+        let coordinates = mapView.convert(touchLocation, toCoordinateFrom: mapView)
+        
+        print( coordinates )
+    }
+    
 }

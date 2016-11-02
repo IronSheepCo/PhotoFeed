@@ -67,6 +67,7 @@
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="mapView" destination="MW7-wn-DPm" id="mXi-hT-Faf"/>
+                        <segue destination="h4T-0b-VLL" kind="show" identifier="go_to_feed" id="bIw-8b-EQz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ha-pa-MHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -76,7 +77,25 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1185" y="-148.94366197183098"/>
+            <point key="canvasLocation" x="1309" y="-150"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4so-qK-7dW">
+            <objects>
+                <viewController id="h4T-0b-VLL" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QHq-vd-Han"/>
+                        <viewControllerLayoutGuide type="bottom" id="aAC-fW-jks"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="07L-Ve-B73">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="96r-gz-iYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2214" y="-149"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5zN-yW-30k">

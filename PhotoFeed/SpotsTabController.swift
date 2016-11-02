@@ -20,6 +20,8 @@ class SpotsTabController: UIViewController, CLLocationManagerDelegate, MKMapView
     fileprivate let locationManager = CLLocationManager()
     fileprivate var query: GFRegionQuery!
     
+    fileprivate let feedSegue = "go_to_feed"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,12 +72,21 @@ class SpotsTabController: UIViewController, CLLocationManagerDelegate, MKMapView
         {
             view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "customMKAnnotationViewId")
             
-            var rightButton = UIButton(type: .detailDisclosure )
+            let rightButton = UIButton(type: .detailDisclosure )
             view?.rightCalloutAccessoryView = rightButton
             view?.canShowCallout = true
         }
         
         return view
+    }
+    
+    public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl)
+    {
+        guard let annon = view.annotation as? FeedAnnotation else{
+            return
+        }
+        
+        performSegue(withIdentifier: feedSegue, sender: self)
     }
     
     @IBAction func longPressOnMap(_ sender: UILongPressGestureRecognizer) {

@@ -13,11 +13,13 @@ class FeedAnnotation: NSObject, MKAnnotation{
     
     var coordinate: CLLocationCoordinate2D
     var title:String?
+    var firebaseKey:String
     
-    init(_ loc: CLLocationCoordinate2D, title:String = "" )
+    init(_ loc: CLLocationCoordinate2D, firKey:String )
     {
         coordinate = loc
-        self.title = title
+        title = ""
+        firebaseKey = firKey
     }
     
 }

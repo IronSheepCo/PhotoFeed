@@ -64,9 +64,12 @@ class SpotsTabController: UIViewController, CLLocationManagerDelegate{
     
     fileprivate func createPhotoFeed(_ coords: CLLocationCoordinate2D )
     {
-        let data: [String:Any] = ["creator": UserSettings.ID!, "location":["lat":coords.latitude, "long":coords.longitude]]
+        let data: [String:Any] = ["creator": UserSettings.ID!, "no":0]
+        let feedId = UUID().uuidString
+        let location:CLLocation = CLLocation( latitude:coords.latitude, longitude:coords.longitude )
         
-        FirebaseUtil.instance.ref.child( "photofeeds" ).child( UUID().uuidString ).setValue(data)
+        FirebaseUtil.instance.ref.child( "photofeeds" ).child( feedId ).setValue(data)
+        FirebaseUtil.instance.geofire.setLocation(location, forKey: feedId)
     }
     
 }

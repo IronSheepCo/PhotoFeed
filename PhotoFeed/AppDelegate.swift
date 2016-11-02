@@ -17,21 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        if UserDefaults.standard.string(forKey: SettingsKey.UID.rawValue ) == nil
+        if UserSettings.ID == nil
         {
-            UserDefaults.standard.set(UUID().uuidString, forKey: SettingsKey.UID.rawValue)
+            UserSettings.ID = UUID().uuidString
             
             //save the user in firebase
-                FirebaseUtil.instance.ref.child("users").child(UserDefaults.standard.string(forKey:SettingsKey.UID.rawValue)!).setValue(
+                FirebaseUtil.instance.ref.child("users").child( UserSettings.ID! ).setValue(
                 ["username":"anon",
                  "created_at":Int(Date().timeIntervalSince1970)]
             )
         }
         else
         {
-            let uid = UserDefaults.standard.string(forKey: SettingsKey.UID.rawValue )!
-            
-            FirebaseUtil.instance.ref.child("users/\(uid)/last_updated").setValue( Int( Date().timeIntervalSince1970) )
+            FirebaseUtil.instance.ref.child("users/\(UserSettings.ID!)/last_updated").setValue( Int( Date().timeIntervalSince1970) )
         }
         
         return true

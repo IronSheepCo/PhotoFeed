@@ -10,6 +10,7 @@
 		8E15AFE71DC8ED9200EFBDD1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E15AFE61DC8ED9200EFBDD1 /* MapKit.framework */; };
 		8E15AFEA1DC8EE2000EFBDD1 /* SpotsTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E15AFE91DC8EE2000EFBDD1 /* SpotsTabController.swift */; };
 		8E15AFED1DC9D84200EFBDD1 /* FirebaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E15AFEC1DC9D84200EFBDD1 /* FirebaseUtil.swift */; };
+		8E15AFEF1DC9D9EA00EFBDD1 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E15AFEE1DC9D9EA00EFBDD1 /* UserSettings.swift */; };
 		8ECE65A41DC8AF9B004442A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE65A31DC8AF9B004442A4 /* AppDelegate.swift */; };
 		8ECE65A61DC8AF9B004442A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE65A51DC8AF9B004442A4 /* ViewController.swift */; };
 		8ECE65A91DC8AF9B004442A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECE65A71DC8AF9B004442A4 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		8E15AFE61DC8ED9200EFBDD1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8E15AFE91DC8EE2000EFBDD1 /* SpotsTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotsTabController.swift; sourceTree = "<group>"; };
 		8E15AFEC1DC9D84200EFBDD1 /* FirebaseUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseUtil.swift; sourceTree = "<group>"; };
+		8E15AFEE1DC9D9EA00EFBDD1 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		8ECE65A01DC8AF9B004442A4 /* PhotoFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ECE65A31DC8AF9B004442A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ECE65A51DC8AF9B004442A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		8ECE65B71DC8E77B004442A4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8E15AFEE1DC9D9EA00EFBDD1 /* UserSettings.swift */,
 				8ECE65B81DC8E788004442A4 /* SettingsKey.swift */,
 			);
 			name = Utils;
@@ -254,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8ECE65A61DC8AF9B004442A4 /* ViewController.swift in Sources */,
+				8E15AFEF1DC9D9EA00EFBDD1 /* UserSettings.swift in Sources */,
 				8E15AFED1DC9D84200EFBDD1 /* FirebaseUtil.swift in Sources */,
 				8ECE65B91DC8E788004442A4 /* SettingsKey.swift in Sources */,
 				8ECE65A41DC8AF9B004442A4 /* AppDelegate.swift in Sources */,

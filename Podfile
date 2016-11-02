@@ -6,6 +6,7 @@ use_frameworks!
 target 'PhotoFeed' do
 
 pod 'Firebase/Database'
+pod 'Firebase/Storage'
 pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
 pod 'Toast-Swift', '~> 2.0.0'
 

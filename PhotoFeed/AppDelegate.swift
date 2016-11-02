@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,16 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        //init firebase
-        FIRApp.configure()
-        let ref = FIRDatabase.database().reference()
-        
         if UserDefaults.standard.string(forKey: SettingsKey.UID.rawValue ) == nil
         {
             UserDefaults.standard.set(UUID().uuidString, forKey: SettingsKey.UID.rawValue)
             
             //save the user in firebase
-                ref.child("users").child(UserDefaults.standard.string(forKey:SettingsKey.UID.rawValue)!).setValue(
+                FirebaseUtil.instance.ref.child("users").child(UserDefaults.standard.string(forKey:SettingsKey.UID.rawValue)!).setValue(
                 ["username":"anon",
                  "created_at":Int(Date().timeIntervalSince1970)]
             )
@@ -36,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             let uid = UserDefaults.standard.string(forKey: SettingsKey.UID.rawValue )!
             
-            ref.child("users/\(uid)/last_updated").setValue( Int( Date().timeIntervalSince1970) )
+            FirebaseUtil.instance.ref.child("users/\(uid)/last_updated").setValue( Int( Date().timeIntervalSince1970) )
         }
         
         return true

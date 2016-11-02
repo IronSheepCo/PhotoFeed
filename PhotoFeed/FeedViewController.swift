@@ -10,12 +10,15 @@ import Foundation
 import UIKit
 import FirebaseStorage
 import UIImage_Resize
+import MBProgressHUD
+import Toast_Swift
 
 class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     var firKey:String!
     
     fileprivate var uploadTask: FIRStorageUploadTask!
+    fileprivate var progressBar: MBProgressHUD!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -61,6 +64,10 @@ class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINa
         uploadTask.observe(.success, handler:uploadDone )
         uploadTask.observe(.failure, handler:uploadError )
         
+        progressBar = MBProgressHUD.showAdded(to: view, animated: true)
+        progressBar.mode = .determinateHorizontalBar
+        progressBar.label.text = "Uploading image"
+        
         //add entry for current feed
         FirebaseUtil.instance.ref.child("images").child( firKey ).child( imageId ).setValue( [ "user":UserSettings.ID, "created_at": String(Int(Date().timeIntervalSince1970)) ] )
         
@@ -72,12 +79,14 @@ class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINa
         if let progress = snapshot.progress
         {
             let procent = 100.0 * Float( progress.completedUnitCount )/Float(progress.totalUnitCount);
-            print( procent )
+            
+            progressBar.progress = procent
         }
     }
     
     fileprivate func uploadDone( snapshot:FIRStorageTaskSnapshot )
     {
+        progressBar.hide( animated:true )
     }
     
     

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class FeedViewController:UIViewController
+class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     var firKey:String!
     
@@ -38,7 +38,13 @@ class FeedViewController:UIViewController
         let imagePicker = UIImagePickerController()
         
         imagePicker.sourceType = type
+        imagePicker.delegate = self
         
         present( imagePicker, animated:true )
+    }
+    
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+        let image = info[ UIImagePickerControllerOriginalImage ] as! UIImage
+        let data = UIImagePNGRepresentation(image)
     }
 }

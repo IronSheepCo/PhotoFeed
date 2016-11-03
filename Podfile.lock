@@ -33,6 +33,7 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.0)
   - GTMSessionFetcher/Core (1.1.7)
   - MBProgressHUD (1.0.0)
+  - SelfSizingWaterfallCollectionViewLayout (0.0.1)
   - Toast-Swift (2.0.0)
   - UIImage-Resize (1.0.1)
 
@@ -41,6 +42,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - GeoFire (from `https://github.com/firebase/geofire-objc.git`)
   - MBProgressHUD (~> 1.0.0)
+  - SelfSizingWaterfallCollectionViewLayout
   - Toast-Swift (~> 2.0.0)
   - UIImage-Resize (~> 1.0)
 
@@ -66,6 +68,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  SelfSizingWaterfallCollectionViewLayout: 8ea9ed8cca9f3bf8144016828a3932aaa97d0eb4
   Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
   UIImage-Resize: fa776860f10e6900bbaf53a73e494bdceaaccc77
 

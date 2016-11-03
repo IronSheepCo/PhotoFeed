@@ -36,7 +36,7 @@ class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINa
     
     fileprivate func feedUpdate(_ snapshot: FIRDataSnapshot )
     {
-        let data = snapshot.value as! [String:AnyObject]
+        guard let data = snapshot.value as? [String:AnyObject] else { return }
         
         print( data )
     }

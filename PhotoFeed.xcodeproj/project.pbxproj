@@ -13,6 +13,7 @@
 		8E15AFEF1DC9D9EA00EFBDD1 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E15AFEE1DC9D9EA00EFBDD1 /* UserSettings.swift */; };
 		8E15AFF21DC9FAAF00EFBDD1 /* FeedAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E15AFF11DC9FAAF00EFBDD1 /* FeedAnnotation.swift */; };
 		8E15AFF41DCA325100EFBDD1 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E15AFF31DCA325100EFBDD1 /* FeedViewController.swift */; };
+		8E15AFF71DCB8D3200EFBDD1 /* DataCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E15AFF61DCB8D3200EFBDD1 /* DataCellView.swift */; };
 		8ECE65A41DC8AF9B004442A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE65A31DC8AF9B004442A4 /* AppDelegate.swift */; };
 		8ECE65A61DC8AF9B004442A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE65A51DC8AF9B004442A4 /* ViewController.swift */; };
 		8ECE65A91DC8AF9B004442A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECE65A71DC8AF9B004442A4 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		8E15AFEE1DC9D9EA00EFBDD1 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		8E15AFF11DC9FAAF00EFBDD1 /* FeedAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedAnnotation.swift; sourceTree = "<group>"; };
 		8E15AFF31DCA325100EFBDD1 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		8E15AFF61DCB8D3200EFBDD1 /* DataCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCellView.swift; sourceTree = "<group>"; };
 		8ECE65A01DC8AF9B004442A4 /* PhotoFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ECE65A31DC8AF9B004442A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ECE65A51DC8AF9B004442A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,14 @@
 			name = Annotations;
 			sourceTree = "<group>";
 		};
+		8E15AFF51DCB8D2200EFBDD1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8E15AFF61DCB8D3200EFBDD1 /* DataCellView.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		8ECE65971DC8AF9B004442A4 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +122,7 @@
 		8ECE65A21DC8AF9B004442A4 /* PhotoFeed */ = {
 			isa = PBXGroup;
 			children = (
+				8E15AFF51DCB8D2200EFBDD1 /* Cells */,
 				8E15AFF01DC9FA9F00EFBDD1 /* Annotations */,
 				8E15AFEB1DC9D82C00EFBDD1 /* Comm */,
 				8E15AFE81DC8EE0A00EFBDD1 /* Controllers */,
@@ -274,6 +285,7 @@
 				8ECE65A61DC8AF9B004442A4 /* ViewController.swift in Sources */,
 				8E15AFEF1DC9D9EA00EFBDD1 /* UserSettings.swift in Sources */,
 				8E15AFED1DC9D84200EFBDD1 /* FirebaseUtil.swift in Sources */,
+				8E15AFF71DCB8D3200EFBDD1 /* DataCellView.swift in Sources */,
 				8ECE65B91DC8E788004442A4 /* SettingsKey.swift in Sources */,
 				8ECE65A41DC8AF9B004442A4 /* AppDelegate.swift in Sources */,
 				8E15AFEA1DC8EE2000EFBDD1 /* SpotsTabController.swift in Sources */,

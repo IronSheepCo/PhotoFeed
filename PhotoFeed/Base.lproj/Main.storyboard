@@ -111,9 +111,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1aE-Oi-4OA">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1aE-Oi-4OA">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2fW-Iw-p2h" customClass="SelfSizingWaterfallCollectionViewLayout">
                                     <size key="itemSize" width="50" height="50"/>
@@ -122,13 +121,24 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dGZ-GL-8Ub">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellViewId" id="dGZ-GL-8Ub">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yPq-vI-5sW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="yPq-vI-5sW" secondAttribute="trailing" constant="-8" id="EbK-67-bBb"/>
+                                            <constraint firstItem="yPq-vI-5sW" firstAttribute="top" secondItem="dGZ-GL-8Ub" secondAttribute="topMargin" constant="-8" id="Wu9-gX-lye"/>
+                                            <constraint firstItem="yPq-vI-5sW" firstAttribute="leading" secondItem="dGZ-GL-8Ub" secondAttribute="leadingMargin" constant="-8" id="f3D-2b-LjW"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="yPq-vI-5sW" secondAttribute="bottom" constant="-8" id="kEm-Pz-aqy"/>
+                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -137,6 +147,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1aE-Oi-4OA" firstAttribute="top" secondItem="QHq-vd-Han" secondAttribute="bottom" id="45u-BU-9Bl"/>
+                            <constraint firstItem="1aE-Oi-4OA" firstAttribute="leading" secondItem="07L-Ve-B73" secondAttribute="leadingMargin" constant="-16" id="90b-gb-w3o"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1aE-Oi-4OA" secondAttribute="trailing" constant="-16" id="pSk-L6-1Va"/>
+                            <constraint firstItem="aAC-fW-jks" firstAttribute="top" secondItem="1aE-Oi-4OA" secondAttribute="bottom" id="x3n-TI-dCr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="I2z-yp-2PN">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xjG-WK-wSG">

@@ -14,12 +14,16 @@ import UIImage_Resize
 import MBProgressHUD
 import Toast_Swift
 
-class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
+class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource
 {
     var firKey:String!
     
     fileprivate var uploadTask: FIRStorageUploadTask!
     fileprivate var progressBar: MBProgressHUD!
+    fileprivate var noPhotos:Int = 0
+    fileprivate var photoPath:[String:String] = [:]
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +41,15 @@ class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINa
     {
         guard let data = snapshot.value as? [String:AnyObject] else { return }
         
+        noPhotos = noPhotos + 1
+        
         print(snapshot.ref.parent?.key)
+    }
+    
+    //MARK: - UICollectionViewDataSource
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
+        return noPhotos
     }
     
     @IBAction func addPhoto(_ sender: UIBarButtonItem) {
@@ -54,6 +66,7 @@ class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINa
         present( alert, animated:true )
     }
     
+    //MARK: - UIImagePicker
     fileprivate func showPicker(_ type: UIImagePickerControllerSourceType )
     {
         let imagePicker = UIImagePickerController()
@@ -87,6 +100,8 @@ class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINa
         
         picker.dismiss(animated: true){}
     }
+    
+    //MARK: - Upload handlers
     
     fileprivate func uploadProgress( snapshot:FIRStorageTaskSnapshot)
     {

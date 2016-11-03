@@ -24,7 +24,6 @@ class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FirebaseUtil.instance.ref.child( "images" ).child( firKey ).observeSingleEvent( of:FIRDataEventType.value, with: feedUpdate )
         FirebaseUtil.instance.ref.child( "images" ).child( firKey ).observe(FIRDataEventType.childAdded, with: feedUpdate )
     }
     
@@ -34,11 +33,11 @@ class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINa
         title = firKey.substring(to: firKey.index(firKey.startIndex, offsetBy:8))
     }
     
-    fileprivate func feedUpdate(_ snapshot: FIRDataSnapshot )
+    fileprivate func feedUpdate( snapshot: FIRDataSnapshot )
     {
         guard let data = snapshot.value as? [String:AnyObject] else { return }
         
-        print( data )
+        print(snapshot.ref.parent?.key)
     }
     
     @IBAction func addPhoto(_ sender: UIBarButtonItem) {

@@ -1,11 +1,14 @@
 PODS:
-  - Firebase/Core (3.8.0):
+  - CHTCollectionViewWaterfallLayout (0.9.5):
+    - CHTCollectionViewWaterfallLayout/ObjC (= 0.9.5)
+  - CHTCollectionViewWaterfallLayout/ObjC (0.9.5)
+  - Firebase/Core (3.9.0):
     - FirebaseAnalytics (= 3.5.1)
     - FirebaseCore (= 3.4.4)
-  - Firebase/Database (3.8.0):
+  - Firebase/Database (3.9.0):
     - Firebase/Core
     - FirebaseDatabase (= 3.1.0)
-  - Firebase/Storage (3.8.0):
+  - Firebase/Storage (3.9.0):
     - Firebase/Core
     - FirebaseStorage (= 1.0.4)
   - FirebaseAnalytics (3.5.1):
@@ -33,16 +36,15 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.0)
   - GTMSessionFetcher/Core (1.1.7)
   - MBProgressHUD (1.0.0)
-  - SelfSizingWaterfallCollectionViewLayout (0.0.1)
   - Toast-Swift (2.0.0)
   - UIImage-Resize (1.0.1)
 
 DEPENDENCIES:
+  - CHTCollectionViewWaterfallLayout
   - Firebase/Database
   - Firebase/Storage
   - GeoFire (from `https://github.com/firebase/geofire-objc.git`)
   - MBProgressHUD (~> 1.0.0)
-  - SelfSizingWaterfallCollectionViewLayout
   - Toast-Swift (~> 2.0.0)
   - UIImage-Resize (~> 1.0)
 
@@ -56,7 +58,8 @@ CHECKOUT OPTIONS:
     :git: https://github.com/firebase/geofire-objc.git
 
 SPEC CHECKSUMS:
-  Firebase: fdbecadb7b5cbef2774852d4fa659b9daf11f2af
+  CHTCollectionViewWaterfallLayout: 775ff73f48cfc13859b62d8bceb96e772e4a0318
+  Firebase: ff77ffb77b317c3720fef57a60e9335cebf962e6
   FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
   FirebaseCore: d0ed25f27b6f9158eccc439f1be6f92e81207e28
   FirebaseDatabase: 3ebb2edb6007c3f0f87b248f3fa212bde56a1468
@@ -68,7 +71,6 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  SelfSizingWaterfallCollectionViewLayout: 8ea9ed8cca9f3bf8144016828a3932aaa97d0eb4
   Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
   UIImage-Resize: fa776860f10e6900bbaf53a73e494bdceaaccc77
 

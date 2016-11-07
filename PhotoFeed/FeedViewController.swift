@@ -13,20 +13,28 @@ import FirebaseDatabase
 import UIImage_Resize
 import MBProgressHUD
 import Toast_Swift
+import CHTCollectionViewWaterfallLayout
 
-class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource
+class FeedViewController:UIViewController, CHTCollectionViewDelegateWaterfallLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource
 {
     var firKey:String!
     
     fileprivate var uploadTask: FIRStorageUploadTask!
     fileprivate var progressBar: MBProgressHUD!
     fileprivate var noPhotos:Int = 0
-    fileprivate var photoPath:[String:String] = [:]
+    fileprivate var photoPaths:[String] = []
+    fileprivate var photoData:[Data?] = []
+    
+    fileprivate var photoQueue:[String] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //(collectionView.collectionViewLayout as! SelfSizingWaterfallCollectionViewLayout).estimatedItemHeight = 300
+        
+        collectionView.delegate = self
         
         FirebaseUtil.instance.ref.child( "images" ).child( firKey ).observe(FIRDataEventType.childAdded, with: feedUpdate )
     }
@@ -39,17 +47,72 @@ class FeedViewController:UIViewController, UIImagePickerControllerDelegate, UINa
     
     fileprivate func feedUpdate( snapshot: FIRDataSnapshot )
     {
-        guard let data = snapshot.value as? [String:AnyObject] else { return }
+        guard let _ = snapshot.value as? [String:AnyObject] else { return }
         
-        noPhotos = noPhotos + 1
+        photoPaths.append( snapshot.ref.key )
         
-        print(snapshot.ref.parent?.key)
+        photoQueue.append( photoPaths.last! )
+        
+        //if we have something in the queue already
+        //return
+        if( photoQueue.count > 1 )
+        {
+            return
+        }
+        
+        getNextPhoto()
+    }
+    
+    open func collectionView(_ collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAt indexPath: IndexPath!) -> CGSize
+    {
+        return CGSize(width: 10, height: 10)
+    }
+    
+    fileprivate func getNextPhoto()
+    {
+        let imagePath = photoQueue.first!
+        
+        FirebaseUtil.instance.storage.child("images").child( imagePath ).data(withMaxSize: 2*1024*1024){
+            data, error in
+            
+            DispatchQueue.main.async{
+                self.noPhotos = self.noPhotos + 1
+                
+                self.photoData.insert(data, at: 0)
+                
+                self.collectionView.insertItems(at: [IndexPath(row: 0, section: 0)] )
+                
+                self.photoQueue.removeFirst()
+                
+                //something in the queue, get it
+                if self.photoQueue.count > 0
+                {
+                    self.getNextPhoto()
+                }
+            }
+        }
     }
     
     //MARK: - UICollectionViewDataSource
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         return noPhotos
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellViewId", for: indexPath ) as! DataCellView
+        
+        guard let data = photoData[ indexPath.row ] else { return cell }
+        
+        cell.imageView.image = UIImage( data:data )
+        
+        return cell
+    }
+    
+    public func numberOfSections(in collectionView: UICollectionView) -> Int
+    {
+        return 1
     }
     
     @IBAction func addPhoto(_ sender: UIBarButtonItem) {

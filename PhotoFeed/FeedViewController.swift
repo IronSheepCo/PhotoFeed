@@ -23,7 +23,7 @@ class FeedViewController:UIViewController, CHTCollectionViewDelegateWaterfallLay
     fileprivate var progressBar: MBProgressHUD!
     fileprivate var noPhotos:Int = 0
     fileprivate var photoPaths:[String] = []
-    fileprivate var photoData:[Data?] = []
+    fileprivate var photoData:[UIImage?] = []
     
     fileprivate var photoQueue:[String] = []
     
@@ -65,7 +65,7 @@ class FeedViewController:UIViewController, CHTCollectionViewDelegateWaterfallLay
     
     open func collectionView(_ collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAt indexPath: IndexPath!) -> CGSize
     {
-        return CGSize(width: 10, height: 10)
+        return (photoData[ indexPath.row ]?.size)!
     }
     
     fileprivate func getNextPhoto()
@@ -75,13 +75,7 @@ class FeedViewController:UIViewController, CHTCollectionViewDelegateWaterfallLay
         FirebaseUtil.instance.storage.child("images").child( imagePath ).data(withMaxSize: 2*1024*1024){
             data, error in
             
-            DispatchQueue.main.async{
-                self.noPhotos = self.noPhotos + 1
-                
-                self.photoData.insert(data, at: 0)
-                
-                self.collectionView.insertItems(at: [IndexPath(row: 0, section: 0)] )
-                
+            defer {
                 self.photoQueue.removeFirst()
                 
                 //something in the queue, get it
@@ -89,6 +83,16 @@ class FeedViewController:UIViewController, CHTCollectionViewDelegateWaterfallLay
                 {
                     self.getNextPhoto()
                 }
+            }
+            
+            guard let realData = data else { return }
+            
+            DispatchQueue.main.async{
+                self.noPhotos = self.noPhotos + 1
+                
+                self.photoData.insert(UIImage(data:realData), at: 0)
+                
+                self.collectionView.insertItems(at: [IndexPath(row: 0, section: 0)] )
             }
         }
     }
@@ -103,9 +107,9 @@ class FeedViewController:UIViewController, CHTCollectionViewDelegateWaterfallLay
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellViewId", for: indexPath ) as! DataCellView
         
-        guard let data = photoData[ indexPath.row ] else { return cell }
+        guard let image = photoData[ indexPath.row ] else { return cell }
         
-        cell.imageView.image = UIImage( data:data )
+        cell.imageView.image = image
         
         return cell
     }

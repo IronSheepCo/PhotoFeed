@@ -191,7 +191,7 @@
 				TargetAttributes = {
 					8ECE659F1DC8AF9B004442A4 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = Z5WP3H8CA9;
+						DevelopmentTeam = HYH5GJW8EQ;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -412,7 +412,7 @@
 			baseConfigurationReference = 1701442801A4A45A2EE5E212 /* Pods-PhotoFeed.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z5WP3H8CA9;
+				DEVELOPMENT_TEAM = HYH5GJW8EQ;
 				INFOPLIST_FILE = PhotoFeed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -427,7 +427,7 @@
 			baseConfigurationReference = 32AEF8976CF7CE088E60FBEC /* Pods-PhotoFeed.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z5WP3H8CA9;
+				DEVELOPMENT_TEAM = HYH5GJW8EQ;
 				INFOPLIST_FILE = PhotoFeed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

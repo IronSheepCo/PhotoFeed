@@ -155,15 +155,19 @@ class FeedViewController:UIViewController, CHTCollectionViewDelegateWaterfallLay
         
         uploadTask = FirebaseUtil.instance.storage.child("images/\(imageId)").put(data!)
         uploadTask.observe(.progress, handler:uploadProgress )
-        uploadTask.observe(.success, handler:uploadDone )
+        uploadTask.observe(.success){
+            snapshot in
+            
+            self.progressBar.hide( animated:true )
+            
+            //add entry for current feed
+            FirebaseUtil.instance.ref.child("images").child( self.firKey ).child( imageId ).setValue( [ "user":UserSettings.ID, "created_at": String(Int(Date().timeIntervalSince1970)) ] )
+        }
         uploadTask.observe(.failure, handler:uploadError )
         
         progressBar = MBProgressHUD.showAdded(to: view, animated: true)
         progressBar.mode = .determinateHorizontalBar
         progressBar.label.text = "Uploading image"
-        
-        //add entry for current feed
-        FirebaseUtil.instance.ref.child("images").child( firKey ).child( imageId ).setValue( [ "user":UserSettings.ID, "created_at": String(Int(Date().timeIntervalSince1970)) ] )
         
         picker.dismiss(animated: true){}
     }
@@ -178,11 +182,6 @@ class FeedViewController:UIViewController, CHTCollectionViewDelegateWaterfallLay
             
             progressBar.progress = procent
         }
-    }
-    
-    fileprivate func uploadDone( snapshot:FIRStorageTaskSnapshot )
-    {
-        progressBar.hide( animated:true )
     }
     
     
